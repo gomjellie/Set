@@ -13,6 +13,8 @@
 		8519539724E85A2F00927450 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8519539524E85A2F00927450 /* Main.storyboard */; };
 		8519539924E85A3200927450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8519539824E85A3200927450 /* Assets.xcassets */; };
 		8519539C24E85A3200927450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8519539A24E85A3200927450 /* LaunchScreen.storyboard */; };
+		A33AD47525AB7CC3007F1699 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33AD47425AB7CC3007F1699 /* Card.swift */; };
+		A33AD47925AB8BFD007F1699 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33AD47825AB8BFD007F1699 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8519539824E85A3200927450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8519539B24E85A3200927450 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8519539D24E85A3200927450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A33AD47425AB7CC3007F1699 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A33AD47825AB8BFD007F1699 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				8519539824E85A3200927450 /* Assets.xcassets */,
 				8519539A24E85A3200927450 /* LaunchScreen.storyboard */,
 				8519539D24E85A3200927450 /* Info.plist */,
+				A33AD47425AB7CC3007F1699 /* Card.swift */,
+				A33AD47825AB8BFD007F1699 /* Game.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -94,7 +100,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = Jacky;
 				TargetAttributes = {
 					8519538B24E85A2E00927450 = {
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8519539424E85A2F00927450 /* ViewController.swift in Sources */,
+				A33AD47925AB8BFD007F1699 /* Game.swift in Sources */,
 				8519539024E85A2F00927450 /* AppDelegate.swift in Sources */,
 				8519539224E85A2F00927450 /* SceneDelegate.swift in Sources */,
+				A33AD47525AB7CC3007F1699 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +200,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -252,6 +261,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
