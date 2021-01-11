@@ -10,40 +10,44 @@ import Foundation
 
 struct SetGame
 {
-    private(set) var deck: [Card]
-    private(set) var field: [Card]
-    private(set) var tomb: [Card] // matched (dead) cards
+    private(set) var decks: [Card]
+    private(set) var fields: [Card]
+    private(set) var tombs: [Card] // matched (dead) cards
     
-    func dealCards(more: Int) {
-        
+    mutating func dealCards(more: Int) {
+        for _ in 1...more {
+            assert(decks.count != 0)
+            let newCard = decks.remove(at: 0)
+            fields.append(newCard)
+        }
     }
     
     mutating func deckShuffle() {
-        for _ in deck.indices {
-            let c1 = deck.count.arc4random
-            let c2 = deck.count.arc4random
+        for _ in decks.indices {
+            let c1 = decks.count.arc4random
+            let c2 = decks.count.arc4random
             
-            let tmp = deck[c1]
-            deck[c1] = deck[c2]
-            deck[c2] = tmp
+            let tmp = decks[c1]
+            decks[c1] = decks[c2]
+            decks[c2] = tmp
         }
     }
     
     func deckShow() {
-        for card in deck {
+        for card in decks {
             print(card)
         }
     }
     
     init() {
-        deck = []
-        field = []
-        tomb = []
+        decks = []
+        fields = []
+        tombs = []
         for shape in Card.Feature.all {
             for color in Card.Feature.all {
                 for number in Card.Feature.all {
                     for shading in Card.Feature.all {
-                        deck.append(Card(shape: shape, color: color, number: number, shading: shading))
+                        decks.append(Card(shape: shape, color: color, number: number, shading: shading))
                     }
                 }
             }

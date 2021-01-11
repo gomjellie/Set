@@ -16,10 +16,10 @@ struct Card: CustomStringConvertible
         let numbers = [1, 2, 3]
         let shadings = ["solid", "striped", "open"]
         
-        let shape = shapes[self.shape.val]
-        let color = colors[self.color.val]
-        let number = numbers[self.number.val]
-        let shading = shadings[self.shading.val]
+        let shape = shapes[self.shape.index]
+        let color = colors[self.color.index]
+        let number = numbers[self.number.index]
+        let shading = shadings[self.shading.index]
         
         return "\(shape) \(color) \(number) \(shading)"
     }
@@ -34,7 +34,7 @@ struct Card: CustomStringConvertible
         case two
         case three
         
-        var val: Int {
+        var index: Int {
             switch self {
             case .one: return 0
             case .two: return 1
