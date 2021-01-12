@@ -13,6 +13,7 @@ struct SetGame
     private(set) var decks: [Card]
     private(set) var fields: [Card]
     private(set) var tombs: [Card] // matched (dead) cards
+    private(set) var selects: [Card]
     
     mutating func dealCards(more: Int) {
         for _ in 1...more {
@@ -33,9 +34,16 @@ struct SetGame
         }
     }
     
-    func deckShow() {
-        for card in decks {
-            print(card)
+    mutating func select(card: Card) {
+        if selects.count >= 3 {
+            return
+        }
+        selects.append(card)
+    }
+    
+    mutating func unSelect(card: Card) {
+        selects.removeAll { (c: Card) -> Bool in
+            return c == card
         }
     }
     
@@ -43,6 +51,7 @@ struct SetGame
         decks = []
         fields = []
         tombs = []
+        selects = []
         for shape in Card.Feature.all {
             for color in Card.Feature.all {
                 for number in Card.Feature.all {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Card: CustomStringConvertible
+struct Card: CustomStringConvertible, Equatable
 {
     var description: String {
         let shapes = ["▲", "●", "■"]
@@ -28,6 +28,26 @@ struct Card: CustomStringConvertible
     var color: Feature;
     var number: Feature;
     var shading: Feature;
+    
+    public static func ==(lhs: Card, rhs: Card) -> Bool {
+        if lhs.shape.index != rhs.shape.index {
+            return false
+        }
+        
+        if lhs.color.index != rhs.color.index {
+            return false
+        }
+        
+        if lhs.number.index != rhs.number.index {
+            return false
+        }
+        
+        if lhs.shading.index != rhs.shading.index {
+            return false
+        }
+        
+        return true
+    }
     
     enum Feature {
         case one

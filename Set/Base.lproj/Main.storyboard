@@ -26,7 +26,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIH-OU-ac3">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="tintColor" systemColor="systemPurpleColor"/>
                                                 <connections>
                                                     <action selector="onCardClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0g-1P-mII"/>
                                                 </connections>
@@ -34,7 +33,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcO-Y7-2Tg">
                                                 <rect key="frame" x="50" y="0.0" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="tintColor" systemColor="systemPurpleColor"/>
                                                 <connections>
                                                     <action selector="onCardClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mLe-D3-7cg"/>
                                                 </connections>
@@ -42,7 +40,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlg-fy-JfF">
                                                 <rect key="frame" x="100" y="0.0" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="tintColor" systemColor="systemPurpleColor"/>
                                                 <connections>
                                                     <action selector="onCardClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HgU-0V-NOZ"/>
                                                 </connections>
@@ -50,7 +47,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgt-UL-Obb">
                                                 <rect key="frame" x="150" y="0.0" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="tintColor" systemColor="systemPurpleColor"/>
                                                 <connections>
                                                     <action selector="onCardClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BHr-2l-3Y8"/>
                                                 </connections>

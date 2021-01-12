@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         
         hideButtons()
         game.deckShuffle()
-        game.deckShow()
         game.dealCards(more: 12)
         updateViewFromModel()
     }
@@ -31,7 +30,7 @@ class ViewController: UIViewController {
     }
     
     private let shapes = ["▲", "●", "■"]
-    private let colors = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)]
+    private let colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)]
     private let numbers = [1, 2, 3]
     private let shadings = [1 , 0.25, 2]
     
@@ -57,14 +56,59 @@ class ViewController: UIViewController {
             button.isHidden = false
         }
     }
+    
+    func onSelect() {
+        var conditionCount = 0
+        
+        if game.selects.count != 3 {
+            return
+        }
+        
+        var matchCounter: [String: [Int: Int]] = [
+            "shape": [0: 0, 1: 0, 2: 0],
+            "number": [0: 0, 1: 0, 2: 0],
+            "shading": [0: 0, 1: 0, 2: 0],
+            "color": [0: 0, 1: 0, 2: 0],
+        ]
+        
+        
+        for select in game.selects {
+            matchCounter["shape"]?[select.shape.index]! += 1
+            matchCounter["number"]?[select.number.index]! += 1
+            matchCounter["shading"]?[select.shading.index]! += 1
+            matchCounter["color"]?[select.color.index]! += 1
+        }
+        
+        for match in matchCounter {
+            let condition = match.value.filter({ (key: Int, value: Int) -> Bool in
+                // 하나의 Feature를 2개가 공유하면 안됨
+                return value == 2
+            })
+            
+            if condition.count == 0 {
+                print(match.key, "condition ++")
+                conditionCount += 1
+            }
+        }
+        
+        if conditionCount == 4 {
+            print("Match!")
+        }
+    }
 
     @IBAction func onCardClick(_ sender: UIButton) {
         if let index = buttons.firstIndex(of: sender) {
-//            let card = game.fields[index]
+            let card = game.fields[index]
             let isSelected = sender.layer.borderColor == #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-            buttons[index].layer.borderColor = isSelected ? #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) : #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+            sender.layer.borderColor = isSelected ? #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) : #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+            
+            if isSelected {
+                game.select(card: card)
+                onSelect()
+            } else {
+                game.unSelect(card: card)
+            }
         }
-        
     }
     
     @IBOutlet var buttons: [UIButton]!
