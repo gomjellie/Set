@@ -20,6 +20,9 @@ class ViewController: UIViewController {
             button.layer.cornerRadius = 8.0
             button.isHidden = true
         }
+        dealButton.layer.borderWidth = 3.0
+        dealButton.layer.cornerRadius = 8.0
+        
         game.deckShuffle()
         game.dealCards(more: 12)
         updateViewFromModel()
@@ -59,6 +62,11 @@ class ViewController: UIViewController {
             button.isHidden = false
             button.layer.borderColor = field.isSelected ? #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) : #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         }
+        
+        if game.decks.count == 0 {
+            dealButton.isEnabled = false
+            dealButton.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        }
     }
     
     @IBAction func onCardClick(_ sender: UIButton) {
@@ -77,6 +85,8 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet var buttons: [UIButton]!
+    
+    @IBOutlet weak var dealButton: UIButton!
     
     @IBAction func onClickDealCard(_ sender: UIButton) {
         game.dealCards(more: 3)

@@ -278,6 +278,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dealButton" destination="1VH-Vy-Rwc" id="frG-eK-HTl"/>
                         <outletCollection property="buttons" destination="zIH-OU-ac3" collectionClass="NSMutableArray" id="ao9-AV-hOD"/>
                         <outletCollection property="buttons" destination="HcO-Y7-2Tg" collectionClass="NSMutableArray" id="axJ-rN-bUo"/>
                         <outletCollection property="buttons" destination="qlg-fy-JfF" collectionClass="NSMutableArray" id="frU-2S-tPh"/>
