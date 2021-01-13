@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         
         if game.decks.count == 0 {
             dealButton.isEnabled = false
+            dealButton.setTitle("더 지급할 카드가 없음", for: UIControl.State.normal)
             dealButton.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }
     }
