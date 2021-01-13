@@ -34,7 +34,7 @@ struct SetGame
         }
     }
     
-    mutating func onMatchSuccess() {
+    private mutating func onMatchSuccess() {
         for select in selects {
             tombs.append(select)
             fields.removeAll(where: { $0 == select })
@@ -43,7 +43,7 @@ struct SetGame
         selects.removeAll()
     }
     
-    mutating func onMatchFail() {
+    private mutating func onMatchFail() {
         for select in selects {
             select.isSelected = false
         }
