@@ -83,10 +83,10 @@ struct SetGame
             }
         }
         
-        if conditionCount == 4 {
-            print("Match!")
+//        if conditionCount == 4 {
+//            print("Match!")
             onMatch()
-        }
+//        }
     }
     
     mutating func unSelect(card: Card) {
