@@ -34,12 +34,19 @@ struct SetGame
         }
     }
     
-    mutating func onMatch() {
+    mutating func onMatchSuccess() {
         for select in selects {
             tombs.append(select)
             fields.removeAll(where: { $0 == select })
         }
         
+        selects.removeAll()
+    }
+    
+    mutating func onMatchFail() {
+        for select in selects {
+            select.isSelected = false
+        }
         selects.removeAll()
     }
     
@@ -83,10 +90,12 @@ struct SetGame
             }
         }
         
-//        if conditionCount == 4 {
-//            print("Match!")
-            onMatch()
-//        }
+        if conditionCount == 4 {
+            print("Match!")
+            onMatchSuccess()
+        } else {
+            onMatchFail()
+        }
     }
     
     mutating func unSelect(card: Card) {
