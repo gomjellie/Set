@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     private let shadings = [1 , 0.25, 2]
     
     private func updateViewFromModel() {
+        hideButtons()
         for index in game.fields.indices {
             let field = game.fields[index]
             let button = buttons[index]
@@ -57,13 +58,6 @@ class ViewController: UIViewController {
             button.setTitleColor(color, for: UIControl.State.normal)
             button.isHidden = false
             button.layer.borderColor = field.isSelected ? #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) : #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        }
-        
-        for index in game.fields.count...game.fields.count + 3 {
-            if index > buttons.count {
-                return
-            }
-            buttons[index].isHidden = true
         }
     }
     

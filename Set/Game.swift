@@ -17,7 +17,10 @@ struct SetGame
     
     mutating func dealCards(more: Int) {
         for _ in 1...more {
-            assert(decks.count != 0)
+            if decks.count == 0 {
+                /// 더 지급할 카드가 없음
+                return
+            }
             let newCard = decks.remove(at: 0)
             fields.append(newCard)
         }
