@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Card: CustomStringConvertible, Equatable
+class Card: CustomStringConvertible, Equatable
 {
     var description: String {
         let shapes = ["▲", "●", "■"]
@@ -23,6 +23,8 @@ struct Card: CustomStringConvertible, Equatable
         
         return "\(shape) \(color) \(number) \(shading)"
     }
+    
+    var isSelected: Bool = false;
     
     var shape: Feature;
     var color: Feature;
@@ -65,5 +67,12 @@ struct Card: CustomStringConvertible, Equatable
         static var all: [Feature] {
             return [.one, .two, .three]
         }
+    }
+    
+    init(shape: Feature, color: Feature, number: Feature, shading: Feature) {
+        self.shape = shape
+        self.color = color
+        self.number = number
+        self.shading = shading
     }
 }

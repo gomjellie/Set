@@ -34,14 +34,63 @@ struct SetGame
         }
     }
     
+    mutating func onMatch() {
+        for select in selects {
+            tombs.append(select)
+            fields.removeAll(where: { $0 == select })
+        }
+        
+        selects.removeAll()
+    }
+    
     mutating func select(card: Card) {
         if selects.count >= 3 {
             return
         }
         selects.append(card)
+        card.isSelected = true
+        
+        var conditionCount = 0
+        
+        if selects.count != 3 {
+            return
+        }
+        
+        var matchCounter: [String: [Int: Int]] = [
+            "shape": [0: 0, 1: 0, 2: 0],
+            "number": [0: 0, 1: 0, 2: 0],
+            "shading": [0: 0, 1: 0, 2: 0],
+            "color": [0: 0, 1: 0, 2: 0],
+        ]
+        
+        
+        for select in selects {
+            matchCounter["shape"]?[select.shape.index]! += 1
+            matchCounter["number"]?[select.number.index]! += 1
+            matchCounter["shading"]?[select.shading.index]! += 1
+            matchCounter["color"]?[select.color.index]! += 1
+        }
+        
+        for match in matchCounter {
+            let condition = match.value.filter({ (key: Int, value: Int) -> Bool in
+                // 하나의 Feature를 2개가 공유하면 안됨
+                return value == 2
+            })
+            
+            if condition.count == 0 {
+                print(match.key, "condition ++")
+                conditionCount += 1
+            }
+        }
+        
+        if conditionCount == 4 {
+            print("Match!")
+            onMatch()
+        }
     }
     
     mutating func unSelect(card: Card) {
+        card.isSelected = false
         selects.removeAll { (c: Card) -> Bool in
             return c == card
         }
